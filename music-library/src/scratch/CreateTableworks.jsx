@@ -1,34 +1,41 @@
-import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import React, {Component} from 'react';
+import './SearchBar.css'
 
-
-function CreateTable(props){
-    return(
+class SearchBar extends Component{
+    constructor(props){
+        super(props);
+        this.state = {}
         
-             <table className='table table-hover'>
-                <thead className='thead-dark'>
-                    <tr>
-                        <th scope='col'> Title </th>
-                        <th scope='col'>Album </th>
-                        <th scope='col'>Artist </th>
-                        <th scope='col'>Genre </th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {
-                    props.music.map(item => (
-                        <tr key={item.id}>
-                            <td>{item.title}</td>
-                            <td>{item.album}</td>
-                            <td>{item.artist}</td>
-                            <td>{item.genre}</td>
-                         </tr>
-                    ))
-                  }
-                </tbody>
-            </table>
-       
-    );
+    }
+
+    handleChange(event){
+        console.log(event.target.name);
+        console.log(event.target.value);
+     this.setState({
+         [event.target.name]: event.target.value
+        });
+    }
+
+    
+
+    render(){
+        return(
+            <form action="/" method="get">
+                <label htmlFor="header-search">
+                    <span className="visually-hidden">Find artists, albums, songs and more</span>
+                </label>
+                <input
+                    type="text"
+                    id="header-search"
+                    placeholder="Find artists, albums and more"
+                    name="s" 
+                    value={this.state.searchCriteria}
+                    onChange={this.handleChange}
+                />
+                <button type="submit">Search</button>
+            </form>
+        );
+    }
 }
 
-export default CreateTable;
+export default SearchBar;

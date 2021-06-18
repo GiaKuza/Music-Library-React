@@ -10,6 +10,7 @@ const SearchBar = () => (
             id="header-search"
             placeholder="Find artists, albums and more"
             name="s" 
+            onChange={}
         />
         <button type="submit">Search</button>
     </form>

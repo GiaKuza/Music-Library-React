@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.css'
-import SearchBar from './SearchBar';
+
 
 function  NavBar(props) {
     return (
@@ -9,7 +9,7 @@ function  NavBar(props) {
                 <div>
                     <div className = "titlebar-nav">
                         <h1>Music Library</h1>
-                        <SearchBar />
+                        
                     </div>
                 </div>
             </div>
