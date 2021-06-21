@@ -12,6 +12,7 @@ function CreateTable(props){
                         <th scope='col'>Album </th>
                         <th scope='col'>Artist </th>
                         <th scope='col'>Genre </th>
+                        <th scope='col'>Release Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@ function CreateTable(props){
                             <td>{item.album}</td>
                             <td>{item.artist}</td>
                             <td>{item.genre}</td>
+                            <td>{item.releaseDate}</td>
                          </tr>
                     ))
                   }

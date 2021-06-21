@@ -28,16 +28,21 @@ class App extends Component {
 
     handleChange(event){
         console.log(event)
-     this.setState({
-         filter: event.target.value
+        this.setState({
+        filter: event.target.value
         });
     }
 
 
     render(){
         let filteredmusic = this.state.music.filter(song => {
-            if(song.title.toLowerCase().includes(this.state.filter.toLowerCase()))
+            if(song.title.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+              (song.album.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+              (song.artist.toLowerCase().includes(this.state.filter.toLowerCase())||
+              (song.genre.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+              (song.releaseDate.toLowerCase().includes(this.state.filter.toLowerCase())) ))))
             return true;
+          
         })
         return(
             <>
