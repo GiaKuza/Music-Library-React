@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import CreateTable from './CreateTable';
 import SearchBar from './SearchBar'
+import AddSongs from './AddSongs';
 
 class App extends Component { 
     constructor(props){
@@ -26,6 +27,7 @@ class App extends Component {
         });
     }
 
+    
     handleChange(event){
         console.log(event)
         this.setState({
@@ -44,11 +46,17 @@ class App extends Component {
             return true;
           
         })
+
+        //create variable to add object with new song info
+        //call function to add song to library (axios call)
         return(
             <>
                 <NavBar />
-                <SearchBar handleChange={(event)=>this.handleChange(event)} />
-                <p>{this.state.filter}</p>
+                <span>
+                    <SearchBar handleChange={(event)=>this.handleChange(event)} />
+                    <p>{this.state.filter}</p>
+                    <AddSongs/>
+                </span>
                 <CreateTable music={filteredmusic} />
             </>
         );
